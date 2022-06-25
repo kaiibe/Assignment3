@@ -1,5 +1,7 @@
 package GUI;
 
+import Items.Item_Extended;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -16,6 +18,7 @@ public class InputsFrame extends JFrame implements ActionListener {
     int choice = 0;
     int i = 1;
 
+    ArrayList<Items.Item_Extended> items_obj = new ArrayList<>();
 
 
 
@@ -306,10 +309,11 @@ public class InputsFrame extends JFrame implements ActionListener {
                     succeedLabel.setVisible(true);
                     i ++;
 
+                    items_obj.add( new Items.Item_Extended( type, name, height, 0, 0, weight, radius, 0, 0 ));
 
                     if ( i > numberOfItems ) {
                         this.dispose();
-                        ResultsFrame go = new ResultsFrame(  );
+                        ResultsFrame go = new ResultsFrame( items_obj );
                     } else {
                         label.setText("Choose shape of " + i + " item");
                     }
@@ -335,6 +339,8 @@ public class InputsFrame extends JFrame implements ActionListener {
                     width = Double.parseDouble(itemWidthCuboid.getText());
                     weight = Double.parseDouble(itemWeightCuboid.getText());
 
+                    items_obj.add( new Items.Item_Extended( type, name, height, length, width, weight, 0, 0, 0 ));
+
 
                     errorLabel.setVisible(false);
                     succeedLabel.setVisible(true);
@@ -342,7 +348,7 @@ public class InputsFrame extends JFrame implements ActionListener {
 
                     if ( i > numberOfItems ) {
                         this.dispose();
-                        ResultsFrame go = new ResultsFrame( );
+                        ResultsFrame go = new ResultsFrame( items_obj );
                     } else {
                         label.setText("Choose shape of " + i + " item");
                     }
@@ -366,13 +372,15 @@ public class InputsFrame extends JFrame implements ActionListener {
                     base = Double.parseDouble(itemBasePentagonal.getText());
                     weight = Double.parseDouble(itemWeightPentagonal.getText());
 
+                    items_obj.add( new Items.Item_Extended( type, name, height, 0, 0, weight, 0, apothem, base ) );
+
                     errorLabel.setVisible(false);
                     succeedLabel.setVisible(true);
                     i ++;
 
                     if ( i > numberOfItems ) {
                         this.dispose();
-                        ResultsFrame go = new ResultsFrame( );
+                        ResultsFrame go = new ResultsFrame( items_obj );
                     } else {
                         label.setText("Choose shape of " + i + " item");
                     }
@@ -399,3 +407,15 @@ public class InputsFrame extends JFrame implements ActionListener {
 
 
 
+
+
+
+
+
+
+
+
+// 
+// 
+// /
+//
