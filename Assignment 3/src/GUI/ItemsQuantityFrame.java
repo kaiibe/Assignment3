@@ -48,14 +48,19 @@ public class ItemsQuantityFrame extends JFrame implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if ( e.getSource() == button ) {
+    if ( e.getSource() == button ) {
             String text = textField.getText();
             try {
                 int check = Integer.parseInt(text);
                 this.dispose();
 
-
+                if ( check == 0 ) {
+                    ArrayList<Item_Extended> items_obj = new ArrayList<>();
+                    ResultsFrame go = new ResultsFrame(items_obj);
+                }
+                else {
+                    InputsFrame go = new InputsFrame( check);
+                }
 
             } catch (NumberFormatException nfe) {
                 error.setVisible(true);
