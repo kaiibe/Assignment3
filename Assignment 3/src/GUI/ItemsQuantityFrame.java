@@ -1,4 +1,4 @@
-//This part was written by Jorge Martinez-Burgos Ortiz
+//This part was written by Jorge Martinez-Burgos Ortiz and Jama ( Exception Error )
 
 package GUI;
 
